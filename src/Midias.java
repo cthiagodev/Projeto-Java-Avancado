@@ -1,3 +1,4 @@
+//Parte de Vidal
 public class Midias {
     private String titulo;
     private String artista;
