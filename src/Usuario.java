@@ -1,34 +1,37 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Usuario {
     private String nome;
     private String email;
-    private String senha;
+    private List<Playlist> playlists;
 
-
-    public Usuario(String nome, String email, String senha) {
+    public Usuario(String nome, String email) {
         this.nome = nome;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
         this.email = email;
+        this.playlists = new ArrayList<>();
     }
 
-    public String getSenha() {
-        return senha;
+    public String getNome() { return nome; }
+    public String getEmail() { return email; }
+
+    public void criarPlaylist(String nome) {
+        playlists.add(new Playlist(nome));
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public Playlist getPlaylist(String nome) {
+        for (Playlist p : playlists) {
+            if (p.getNome().equalsIgnoreCase(nome)) {
+                return p;
+            }
+        }
+        return null;
+    }
+
+    public void listarPlaylists() {
+        System.out.println("Playlists de " + nome + ":");
+        for (Playlist p : playlists) {
+            System.out.println("- " + p.getNome());
+        }
     }
 }
