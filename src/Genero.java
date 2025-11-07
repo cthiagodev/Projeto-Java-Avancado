@@ -1,4 +1,3 @@
 public enum Genero {
-
-        forro, brega, funk, eletronica
+    FORRO, FUNK, BREGA, POP, ROCK
 }
